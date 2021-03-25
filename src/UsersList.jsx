@@ -1,22 +1,15 @@
 import React from 'react';
+import { User } from './User';
 
 export const UsersList = ({ users, onDelete, onRename }) => (
   <ul>
     {users.map((user) => (
       <li key={user.id}>
-        {user.name}
-
-        <input
-          type="text"
-          value={user.name}
-          onChange={(event) => onRename(user.id, event.target.value)}
+        <User
+          user={user}
+          onDelete={onDelete}
+          onRename={onRename}
         />
-
-        <button
-          onClick={() => onDelete(user.id)}
-        >
-          X
-        </button>
       </li>
     ))}
   </ul>
